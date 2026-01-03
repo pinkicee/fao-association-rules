@@ -47,14 +47,19 @@ Etapele principale ale proiectului sunt:
 
 ```bash
 fao-association-rules/
+│
 ├── data/
-│ ├── raw/ # fișiere CSV brute (neincluse în repository)
-│ └── processed/ # rezultate generate de algoritmi
+│   ├── raw/                  # date brute (NU se urca pe GitHub)
+│   │   ├── consumption_user.csv
+│   │   └── subject_user.csv
+│   └── processed/            # rezultate generate
 │
 ├── src/
-│ ├── 01_eda.py
-│ ├── 02_fp_growth.py
-│ └── 03_compare_apriori.py
+│   ├── config.py             # parametri si cai
+│   ├── utils.py              # functii reutilizabile
+│   ├── 01_eda.py             # analiza descriptiva
+│   ├── 02_fp_growth.py       # FP-Growth + reguli
+│   └── 03_compare_apriori.py # comparatie cu Apriori
 │
 ├── requirements.txt
 ├── .gitignore
