@@ -1,0 +1,11 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Data
+data/raw/*.csv
+
+# OS/ IDE
+.idea/
+.DS_Store
