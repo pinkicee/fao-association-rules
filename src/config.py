@@ -11,7 +11,7 @@ CONSUMPTION_CSV = RAW_DIR / "consumption_user.csv"
 SUBJECT_CSV = RAW_DIR / "subject_user.csv"
 
 # Parametri mining
-MIN_SUPPORT = 0.05
+MIN_SUPPORT = 0.03
 MIN_CONFIDENCE = 0.40
 MIN_LIFT = 1.20
 
