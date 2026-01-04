@@ -77,3 +77,44 @@ Instalarea dependențelor se poate face cu:
 
 ```bash 
 pip install -r requirements.txt
+```
+## Compararea FP-Growth și Apriori (România + Lao PDR)
+
+Compararea algoritmilor **FP-Growth** și **Apriori** a fost realizată pe un set de date FAO/WHO GIFT combinat, corespunzător României și Lao PDR.
+
+### Definirea elementelor analizate
+
+- **Tranzacție**: perechea *(SUBJECT, SURVEY_DAY)*
+- **Item**: ingredient alimentar  
+  - România: `INGREDIENT`  
+  - Lao PDR: `INGREDIENT_ENG`
+
+Setul de date rezultat conține aproximativ **3040 de tranzacții**, dintre care **~2900** au fost păstrate după etapa de filtrare.
+
+
+
+## Rezultate experimentale
+
+### Prag suport minim: `min_support = 0.05`
+
+| Algoritm   | Timp de execuție (s) | Itemset-uri frecvente |
+|------------|----------------------|-----------------------|
+| FP-Growth  | 48.07                | 6852                  |
+| Apriori    | 1.20                 | 6852                  |
+
+
+
+### Prag suport minim: `min_support = 0.03`
+
+| Algoritm   | Timp de execuție (s) | Itemset-uri frecvente |
+|------------|----------------------|-----------------------|
+| FP-Growth  | 324.56               | 42765                 |
+| Apriori    | 6.91                 | 42765                 |
+
+
+
+## Concluzie
+
+În contextul acestui set de date FAO/WHO GIFT, algoritmul **Apriori** s-a dovedit semnificativ mai rapid decât **FP-Growth**, obținând aceleași itemset-uri frecvente pentru valorile analizate ale pragului de suport.
+
+Rezultatele arată că performanța algoritmilor de descoperire a regulilor de asociere depinde de caracteristicile concrete ale datelor (dimensiune, densitate) și de alegerea pragului de suport. Deși **FP-Growth** prezintă avantaje teoretice pentru seturi de date foarte mari și dense, **Apriori** poate oferi performanțe superioare în contexte practice bine definite, precum cel analizat în acest proiect.
