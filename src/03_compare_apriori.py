@@ -75,11 +75,24 @@ def main():
         print(f"[INFO] Itemset-uri Apriori: {len(freq_ap)}")
 
         # Raport comparativ
-        if t_fp > 0:
+        print(f"[INFO] FP-Growth: {round(t_fp, 2)} secunde")
+        print(f"[INFO] Apriori:   {round(t_ap, 2)} secunde")
+
+        if t_fp > t_ap:
+            ratio = t_fp / t_ap
+            print(
+                f"[INFO] Apriori a fost de aproximativ "
+                f"{round(ratio, 2)} ori mai rapid decat FP-Growth"
+            )
+        elif t_ap > t_fp:
+            ratio = t_ap / t_fp
             print(
                 f"[INFO] FP-Growth a fost de aproximativ "
-                f"{round(t_ap / t_fp, 2)} ori mai rapid decat Apriori"
+                f"{round(ratio, 2)} ori mai rapid decat Apriori"
             )
+        else:
+            print("[INFO] Timpi de executie aproximativ egali")
+
     except:
         print("[WARN] Apriori nu a rulat din motive de resurse.")
 
